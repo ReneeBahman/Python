@@ -1,3 +1,4 @@
+import math
 greeting = 'Hello World!'
 print(greeting)
 
@@ -114,3 +115,84 @@ print(len(multiline))
 print(len(multiline.strip()))
 print(len(multiline.lstrip()))
 print(len(multiline.rstrip()))
+
+print("")
+
+# Build a menu S
+
+title = "menu".upper()
+print(title.center(20, "="))
+print("Coffee".ljust(16, ".") + "€1".rjust(4))
+print("Muffin".ljust(16, ".") + "€2".rjust(4))
+print("Cheescake".ljust(16, ".") + "€4".rjust(4))
+
+print("")
+
+# string index values
+print(first[1])  # indexes start at 0
+print(first[-1])
+print(first[1:-1])
+# range - from start to end, keeping empty after: brings all of the range
+print(first[0:])
+
+print("")
+
+# some methods to return boolean data
+print(first.startswith("R"))
+print(first.endswith("Z"))
+print("")
+
+# Boolean values
+myvalue = True
+x = bool(False)
+print(type(x))
+print(isinstance(myvalue, bool))
+
+# numberic data types
+
+# integer
+
+price = 100
+best_price = int(80)
+print(type(price))
+print(isinstance(best_price, int))
+
+# float - have decimals
+
+gpa = 3.28  # literal assigment
+y = float(1.14)
+print(type(gpa))
+
+
+# complex type
+
+comp_calue = 5+3J
+print(type(comp_calue))
+print(comp_calue.real)
+print(comp_calue.imag)
+print("")
+
+# Built in functions for numbers
+
+print(abs(gpa))
+print(abs(gpa * -1))
+print(round(gpa))  # rouds to the nearest integer
+print(round(gpa, 1))  # rounds to the nearest decimal point specified
+
+
+print(math.pi)
+print(math.sqrt(64))
+print(math.ceil(gpa))
+print(math.floor(gpa))
+
+
+print("")
+
+# Castinf a string to a number
+zipcode = "10001"
+zip_value = int(zipcode)
+print(type(zip_value))
+
+# Error if we attempt to cast inccorect data
+
+# zip_value = int("New York") # Sample
