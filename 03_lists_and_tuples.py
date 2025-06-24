@@ -138,3 +138,75 @@ print(hey)
 print("")
 print(anothertuple)
 print(anothertuple.count(2))
+
+
+# additional training with GPT
+
+mytuple = (10, 20, 30)
+a, b, c = mytuple
+
+print(a)  # 10
+print(b)  # 20
+print(c)  # 30
+
+print("")
+mytuple = (10, 20, 30, 40, 50)
+
+a, b, *rest = mytuple
+
+print(a)     # 10
+print(b)     # 20
+print(rest)  # [30, 40, 50]
+
+# sample
+mydata = ("Python", 3.13, "Renee", True, 2025)
+
+lang, version, *details = mydata
+
+print(lang)
+print(version)
+print(details)
+
+print("")
+
+mydata = ("Python", 3.13, "Renee", True, 2025)
+
+lang, *middle, year = mydata
+
+print(lang)
+print(middle)
+print(year)
+
+print("")
+
+
+tiny = (1, 2, 3)
+
+a, *b, c = tiny
+
+print(a)
+print(b)
+print(c)
+
+# unpacking a string
+
+print("")
+
+language = "Python"
+
+a, b, *middle, y, z = language
+
+print(a)
+print(b)
+print(middle)
+print(y)
+print(z)
+
+numbers = [100, 200, 300, 400, 500, 600, 700]
+
+first, *middle, second_last, last = numbers
+
+print(first)
+print(middle)
+print(second_last)
+print(last)
