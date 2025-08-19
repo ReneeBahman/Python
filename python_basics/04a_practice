@@ -1,0 +1,192 @@
+# Given:
+names = ["Renee", "Dave", "Anna", "John", "Elsa"]
+
+# Task: print only the second to fourth names (inclusive of second, exclusive of fifth)
+
+print(names[1:4])
+
+
+names.append("Robert")  # append for adding just name
+print(names)
+names.remove("Robert")  # deleting for another method
+
+names += ["Robert"]
+
+
+print(names)
+names.remove("Robert")  # deleting for another method
+
+names.extend(['Robert'])
+print(names)
+
+print("")
+
+names[2:3] = ["Annika"]  # slicing - replacing name with the index method
+
+print(names)
+
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+evens = [x for x in nums if x % 2 == 0]
+print(evens)
+
+
+# range() gives all but last value, so the numbers represented are 1 to 10 not 1 to 11
+squares_of_odds = [x**2 for x in range(1, 11) if x % 2 != 0]
+print(squares_of_odds)
+
+
+# Tuples
+print("")
+print("")
+subheader = "Tuples"
+print(subheader)
+print("")
+print("")
+
+info = ("Renee", 48, "Analyst")
+print(info)
+infolist = list(info)
+infolist.append("Tallinn")
+
+info = tuple(infolist)
+print(info)
+
+# Given:
+coords = (59.437, 24.7535, "Tallinn")
+
+# Task:
+# Unpack into three variables: lat, lon, city
+# and print them out
+lat, lon, city = coords
+print(lat)
+print(lon)
+print(city)
+
+
+# excercise in dounle indexes in dictionaries
+# Key = (employee_name, year)
+# Value = performance_rating (1–5 scale)
+
+# Sample data:
+# ("Renee", 2023) → 5
+# ("Renee", 2024) → 4
+# ("Anna", 2024) → 3
+
+score = {
+    ("Renee", 2023): 5,
+    ("Renee", 2024): 4,
+    ("Anna", 2024): 3,
+}
+
+print(score)
+
+employee = "Anna"
+year = 2024
+print(score[employee, year])
+
+# change value inside dictionary
+score[(employee, year)] = 4  # Changes ("Anna", 2024) from 3 → 4
+
+score[("Renee", 2023)] = 3
+
+score[("John", 2023)] = 2  # Adds new person/year
+
+print(score)
+
+
+"""
+| Action             | Code Example                        |
+|--------------------|-------------------------------------|
+| Access a value     | score[(employee, year)]             |
+| Change a value     | score[(employee, year)] = new_val   |
+| Add new key-value  | score[("NewName", 2025)] = value    |
+"""
+
+names = set([name for (name, year) in score])
+print(names)
+print(year)
+
+
+person = {
+    "name": "Renee",
+    "age": 42,
+    "location": "Tallinn"
+}
+
+print(person)
+
+print(person["name"])            # Access value by key
+person["age"] = 43               # Update a value
+person["job"] = "Analyst"        # Add new key-value pair
+del person["location"]           # Delete a key
+print("name" in person)          # Check if key exists
+
+print(person)
+
+
+# Dictionary Mini Exercises
+
+programming = {
+    "Renee": "Python",
+    "Gerda": "R",
+    "Alexander": "Java"
+}
+
+print(programming)
+print("")
+
+# printing single value from dictionary or printing by key
+print(programming["Renee"])
+
+# Update a value
+programming["Gerda"] = "SQL"
+
+# Add a new key-value pair
+programming["Karl"] = "C++"
+
+# looping over the dictionary
+
+for name, language in programming.items():
+    print(f"{name} likes {language}")
+
+
+# finding only Python programmers
+
+# sets loop and defining what is name and what is language inside programming dictionary
+for name, language in programming.items():
+    if language == "Python":  # sets condition if in this library the language is Python
+        print(name)  # then prints the value
+
+
+# each language count
+
+language_counts = {}  # sets a new empty dictionary as a placeholder i guess?
+print("")
+print("")
+print(language_counts)
+print("")
+print("")
+
+# sets loop as previously - meaning counts each row and assigns name and language to appropriate position
+for name, language in programming.items():
+    if language in language_counts:
+        # sets condition if language repeats then add +1, question though - does this now assign the values to the language_counts dictionary or where the connection is defined what consists of language_counts
+        language_counts[language] += 1
+    else:
+        language_counts[language] = 1  # when only one value then 1
+
+print(language_counts)  # prints
+
+print("")
+
+count = 0
+
+
+def counter():
+    global count
+    count += 1
+
+
+counter()
+counter()
+print(count)

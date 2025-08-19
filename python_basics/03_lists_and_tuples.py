@@ -38,6 +38,9 @@ print(users)
 users.extend(['Robert', 'Jimmy'])
 print(users)
 
+print("")
+print("")
+print("")
 
 # users.extend(data)  # adding another list to existing list
 # print(users)
@@ -48,6 +51,8 @@ print(users)
 users[2:2] = ['Eddie', 'Alex']  # adding new values to the list with indexes
 print(users)
 
+print("")
+print("")
 print("")
 
 users[1:3] = ['Robert', 'JPJ']  # replacing values in the list, aka slice
