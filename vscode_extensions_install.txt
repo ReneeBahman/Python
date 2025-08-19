@@ -1,0 +1,19 @@
+# Core Python & Data Extensions
+ms-python.python
+ms-python.vscode-pylance
+ms-toolsai.jupyter
+eamodio.gitlens
+mechatroner.rainbow-csv
+esbenp.prettier-vscode
+yzhang.markdown-all-in-one
+
+# SQL Extensions
+mtxr.sqltools
+mtxr.sqltools-driver-sqlite
+alexcvzz.vscode-sqlite
+
+# Optional drivers (uncomment as needed)
+# mtxr.sqltools-driver-pg
+# mtxr.sqltools-driver-mysql
+# mtxr.sqltools-driver-oracle
+# mtxr.sqltools-driver-sybase
