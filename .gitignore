@@ -22,3 +22,4 @@ model_validation/reports/figures/
 *.csv
 *.json
 *.log
+model_validation/data/sample_data_*.csv
