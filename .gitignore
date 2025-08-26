@@ -14,9 +14,11 @@ env/
 .DS_Store
 Thumbs.db
 
-# Reports & artifacts (can be huge — keep only source code in repo)
-reports/artifacts/
-reports/figures/
-
-# Logs
+# Reports & artifacts (outputs only, not source)
+model_validation/reports/artifacts/
+model_validation/reports/figures/
+*.joblib
+*.png
+*.csv
+*.json
 *.log
