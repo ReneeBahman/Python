@@ -1,0 +1,4 @@
+20250820_073005: generated sample_data_20250820_073005.csv (rows=900000, default_rate=0.071, loan_mean=22093, loan_median=20623)
+20250820_073056: generated sample_data_20250820_073056.csv (rows=900000, default_rate=0.071, loan_mean=22093, loan_median=20623)
+20250820_080630: generated sample_data_20250820_080630.csv (rows=900000, default_rate=0.071, loan_mean=22093, loan_median=20623)
+20250820_080739: generated sample_data_20250820_080739.csv (rows=900000, default_rate=0.070)

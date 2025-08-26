@@ -1,0 +1,19 @@
+# Install base requirements first
+-r requirements_base.txt
+
+# --- Development tools ---
+
+# Code formatting (auto style fixer)
+black
+
+# Linting (find errors, unused imports, style issues)
+flake8
+
+# Testing framework
+pytest
+
+# Jupyter environment (extended)
+jupyterlab
+
+# Optional: pre-commit hook manager (run black/flake8 before git commit)
+pre-commit
