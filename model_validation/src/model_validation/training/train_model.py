@@ -8,17 +8,18 @@ Baseline credit default model with clean preprocessing & evaluation.
 - Model: LogisticRegression (class_weight='balanced')
 - Splits: stratified train/val/test
 - Metrics: ROC AUC, PR AUC, F1, accuracy, Brier score, calibration
-- Saves: model, report, feature_names
+- Saves: model, report, curves under reports/
 """
 
-import matplotlib.pyplot as plt
 import os
 import json
+from datetime import datetime
+
 import joblib
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 
-from datetime import datetime
 from sklearn.model_selection import train_test_split
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
@@ -29,14 +30,18 @@ from sklearn.metrics import (
     brier_score_loss, precision_recall_curve, roc_curve
 )
 
-RANDOM_STATE = 42
-BASE_DIR = os.path.dirname(__file__)
-ROOT = os.path.abspath(os.path.join(BASE_DIR, "..", ".."))
-DATA_PATH = os.path.join(ROOT, "data", "sample_data.csv")
-ARTIFACT_DIR = os.path.join(ROOT, "reports", "artifacts")
-FIG_DIR = os.path.join(ROOT, "reports", "figures")
+# 🔧 Use shared helpers so paths are always correct from project root
+from model_validation.common import setup
+
+# Paths
+DATA_PATH = setup.get_data_path("sample_data.csv")
+REPORTS_DIR = setup.get_reports_dir()
+ARTIFACT_DIR = os.path.join(REPORTS_DIR, "artifacts", "training")
+FIG_DIR = os.path.join(REPORTS_DIR, "figures", "training")
 os.makedirs(ARTIFACT_DIR, exist_ok=True)
 os.makedirs(FIG_DIR, exist_ok=True)
+
+RANDOM_STATE = getattr(setup, "RANDOM_STATE", 42)
 
 print("Loading:", DATA_PATH)
 df = pd.read_csv(DATA_PATH)
@@ -48,7 +53,7 @@ X = df.drop(columns=[target])
 
 # Feature schema
 num_cols = ["age", "income", "loan_amount", "loan_term", "credit_score"]
-# You also have age_years; we’ll drop it to avoid leakage/duplication with age.
+# Note: you also have age_years; we drop it to avoid duplication/leakage with age.
 cat_cols = ["employment_status", "loan_purpose", "region"]
 
 # Split (train/val/test)
@@ -69,7 +74,7 @@ preprocess = ColumnTransformer(
 
 # Model (simple, strong baseline)
 clf = LogisticRegression(
-    class_weight="balanced",      # handle 7% minority
+    class_weight="balanced",      # handle ~7% positive rate
     max_iter=1000,
     random_state=RANDOM_STATE,
     n_jobs=None
@@ -107,6 +112,7 @@ metrics_test,  proba_test = evaluate("Test",  X_test,  y_test,  pipe)
 # Save artifacts
 ts = datetime.now().strftime("%Y%m%d_%H%M%S")
 model_path = os.path.join(ARTIFACT_DIR, f"baseline_logreg_{ts}.joblib")
+report_path = os.path.join(ARTIFACT_DIR, f"report_{ts}.json")
 joblib.dump(pipe, model_path)
 
 report = {
@@ -116,7 +122,6 @@ report = {
     "metrics": {"train": metrics_train, "val": metrics_val, "test": metrics_test},
 }
 
-report_path = os.path.join(ARTIFACT_DIR, f"report_{ts}.json")
 with open(report_path, "w") as f:
     json.dump(report, f, indent=2)
 
@@ -125,12 +130,11 @@ print("  Model  ->", model_path)
 print("  Report ->", report_path)
 
 # Optional: save curves (ROC + PR on test)
-
 # ROC
 fpr, tpr, _ = roc_curve(y_test, proba_test)
 plt.figure(figsize=(5, 4))
 plt.plot(fpr, tpr, label=f"ROC AUC={metrics_test['roc_auc']:.3f}")
-plt.plot([0, 1], [0, 1], '--', color='grey')
+plt.plot([0, 1], [0, 1], '--')
 plt.xlabel("FPR")
 plt.ylabel("TPR")
 plt.title("ROC curve (Test)")
