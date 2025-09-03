@@ -1,0 +1,25 @@
+# Envs
+.venv/
+.env
+.env.*
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data (local only)
+data/raw/
+data/processed/
+
+# Reports / artifacts
+reports/artifacts/
+data/raw/
+data/interim/
+data/processed/
+.kaggle/
