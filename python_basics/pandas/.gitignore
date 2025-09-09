@@ -1,0 +1,14 @@
+# venv
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# data & outputs (keep repo light)
+data/
+figures/
+
+# OS cruft
+.DS_Store
+Thumbs.db

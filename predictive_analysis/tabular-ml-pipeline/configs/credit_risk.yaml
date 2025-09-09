@@ -1,0 +1,6 @@
+# Overrides for Credit Risk dataset
+target: default
+features:
+  categorical:
+    - gender
+    - employment_status

@@ -1,0 +1,31 @@
+        ┌───────────────┐
+        │   Training    │
+        │   (70–80%)    │
+        └──────┬────────┘
+               │ Fit model
+               │ Feature eng. (log, ratios, bins)
+               │ Handle collinearity (if interpretability goal)
+               │ Regularization (if predictive goal)
+               ▼
+        ┌───────────────┐
+        │  Validation   │
+        │   (10–15%)    │
+        └──────┬────────┘
+               │ Tune hyperparameters (e.g. C in logit)
+               │ Tune threshold (business cutoff)
+               │ Calibrate PDs (Platt / isotonic)
+               │ Early stopping (for trees/NNs)
+               ▼
+        ┌───────────────┐
+        │     Test      │
+        │   (10–15%)    │
+        └──────┬────────┘
+               │ Final performance check
+               │ Report AUC, KS, Lift, Deciles
+               │ Regulatory validation
+               ▼
+        ┌───────────────┐
+        │  Production   │
+        └───────────────┘
+               │ Monitor drift
+               │ Recalibrate/retrain

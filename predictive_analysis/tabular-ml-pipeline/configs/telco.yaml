@@ -1,0 +1,5 @@
+# Overrides for Telco dataset
+target: churn
+features:
+  drop:
+    - customerID
