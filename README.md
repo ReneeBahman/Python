@@ -1,57 +1,50 @@
-# 🐍 Python for Data Analysis – Learning Journey
+# Python Portfolio
 
-Welcome to my Python Data Analysis repo! This repository documents my learning journey in Python, with a focus on acquiring the skills necessary for effective data manipulation, analysis, and future experimentation with machine learning and AI.
+This repository collects all of my Python projects — from structured Udemy bootcamps to custom-built pipelines and credit risk modeling. It is my learning log and portfolio.
 
----
+## 📂 Projects
 
-## 🎯 Goals
+- **[Data Science Bootcamp 2025](data_science/bootcamp_2025/README.md)**  
+  Companion work for the Udemy bootcamp. Covers math, statistics, Python, Tableau, machine learning, and deep learning with hands-on notebooks.
 
-- Build a strong foundation in Python programming basics
-- Become proficient with data analysis libraries like `pandas`, `numpy`, `matplotlib`, and `seaborn`
-- Practice real-world data wrangling and visualization
-- Apply statistical methods learned during my Economic Analysis Master's program
-- Explore predictive modeling and AI-based projects in the future
+- **[Model Validation](model_validation/README.md)**  
+  Credit risk logistic regression pipeline: diagnostics, training, calibration, and validation.  
+  Focus: banking & regulatory model validation (IFRS-9, IRB).
 
----
+- **[Predictive Analysis](predictive_analysis/tabular-ml-pipeline/README.md)**  
+  Kaggle-based pipelines with tree ensembles (Decision Trees, Random Forests, XGBoost, LightGBM).  
+  Emphasis: clean data pipelines, ETL, reproducible ML.
 
-## ✅ Current Focus: Python Fundamentals
+- **[Python Basics](python_basics/README.md)**  
+  DataCamp companion notebooks re-implemented in VS Code. Covers pandas, NumPy, and core data manipulation.
 
-### Completed Topics
-- [x] Variables and data types (`int`, `float`, `str`, `bool`)
-- [x] Collections (`list`, `dict`, `set`, `tuple`)
-- [x] Conditional logic (`if`, `elif`, `else`)
-- [x] Basic string manipulation and escape characters
-- [x] File input/output
-- [x] GitHub integration using VS Code
-
-### Next Up
-- [ ] Functions and modular code
-- [ ] Loops and list comprehensions
-- [ ] Error handling and working with files
-- [ ] Starting with `pandas` and `numpy`
-- [ ] Visualization with `matplotlib` and `seaborn`
+- **[Bash Basics](bash_basics/commands.md)**  
+  Cheat sheets and simple command-line scripts for Git Bash and Linux shells.
 
 ---
 
-## 🧩 Python to Pandas Bridge (Mini Cheat Sheet)
-
-| Python Concept        | Pandas Equivalent           |
-|-----------------------|-----------------------------|
-| `list`                | `Series`                    |
-| `dict`                | `Series` or `DataFrame`     |
-| List of dicts         | `DataFrame`                 |
-| `sum(my_list)`        | `df['column'].sum()`        |
-| Filtering with `if`   | `df[df['column'] > value]`  |
-| `for` loop over list  | `df.apply()` or vector ops  |
+## 🛠 Tech Stack
+- **Python** → NumPy, pandas, matplotlib, seaborn, scikit-learn, statsmodels, Jupyter  
+- **ML** → Logistic Regression, Tree Ensembles, Validation Diagnostics  
+- **Data Engineering** → ETL pipelines, star-schema modeling  
+- **Tools** → Git, GitHub, Bash, VS Code, Tableau  
 
 ---
 
-## 📁 Repository Structure
+## 🚀 Usage
 
-```plaintext
-📦 python-learning/
-├── 📄 README.md          ← This file
-├── 📄 day01_basics.py    ← First steps with syntax and variables
-├── 📄 day02_strings.py   ← Playing with strings and escape characters
-├── 📁 data/              ← (Optional) Sample datasets for practice
-└── 📁 notebooks/         ← (Optional) Jupyter or Colab notebooks
+Clone this repo and install dependencies per project:
+
+```bash
+git clone https://github.com/ReneeBahman/Python.git
+cd Python/data_science/bootcamp_2025
+python -m venv .venv && source .venv/Scripts/activate
+pip install -r env/requirements.txt
+```
+
+Each project folder has its own `README.md` with details and setup instructions.
+
+---
+
+## 📌 About
+This repo is actively updated as I progress in data analytics, credit risk modeling, and machine learning. It represents both study projects and production-minded workflows.
